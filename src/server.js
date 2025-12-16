@@ -17,6 +17,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev')); // Request logging
 
+// Serve static files (HTML page)
+app.use(express.static('public'));
+
 // Add header to bypass ngrok browser warning
 app.use((req, res, next) => {
   res.set('ngrok-skip-browser-warning', 'true');
